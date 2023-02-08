@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fastidious Heatmap Tool</title>
+
+    <style>
+        body {
+            height: 4000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var heatmap_scroll = [ x => 0, y => 0 ];
+
+        // 初期化
+        window.onload = () => {
+            // スクロール量を代入
+            heatmap_scroll.x = window.pageXOffset;
+            heatmap_scroll.y = window.pageYOffset;
+            console.log(`scroll: { x: ${heatmap_scroll.x}, y: ${heatmap_scroll.y} }`);
+        }
+
+        // マウスクリックイベント
+        window.addEventListener('click', e => {
+            console.log(`click: { x: ${heatmap_scroll.x + e.clientX}, y: ${heatmap_scroll.y + e.clientY} }`);
+        });
+
+        // スクロールが発生
+        window.addEventListener('scroll', () => {
+            // スクロール量を代入
+            heatmap_scroll.x = window.pageXOffset;
+            heatmap_scroll.y = window.pageYOffset;
+            console.log(`scroll: { x: ${heatmap_scroll.x}, y: ${heatmap_scroll.y} }`);
+        });
+    </script>
+</body>
+</html>
